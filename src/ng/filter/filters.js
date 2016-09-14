@@ -292,7 +292,9 @@ function formatNumber(number, pattern, groupSep, decimalSep, fractionSize) {
 
   var isInfinity = !isFinite(number);
   var isZero = false;
-  var numStr = Math.abs(number) + '',
+  var numStr = isString(number) 
+  	? number.replace(',','.')
+  	: Math.abs(number) + '',
       formattedText = '',
       parsedNumber;
 
